@@ -1,6 +1,8 @@
 #pragma once
 #include"Node.h"
 
+namespace SinglyLinkedList{
+
 typedef _node::SinglyNode<int> Node;
 typedef Node *Ptr;
 
@@ -146,4 +148,6 @@ Ptr Search2(Ptr First, int value){
     if(p == nullptr || p->data == value)
         return p;
     return nullptr;
+}
+
 }

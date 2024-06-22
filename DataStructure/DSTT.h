@@ -21,9 +21,9 @@ struct List1{
 struct List2{
     int *data;
     int n;
-    int size;
+    unsigned int size;
 
-    List2(int size){
+    List2(unsigned int size){
         this->size = size;
         data = new int [size];
         n = 0;
