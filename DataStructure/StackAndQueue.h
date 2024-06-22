@@ -59,11 +59,11 @@ public:
         //front == 0, rear == size-1
         //front ngay sau rear
 
-        return((front - rear == 1)||(rear - front +1 == size))
+        return((front - rear == 1)||(rear - front +1 == size));
     }
 
     bool push(T value){
-        if(full)
+        if(full())
             return false;
         
         if(front == -1){
