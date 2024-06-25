@@ -35,7 +35,7 @@ int main(){
     clock_t start_t, end_t;
 
     //============== Quick Sort
-    cout << setw(30) << setfill('=') << "" << setfill(' ') << "Quick Sort" << endl;
+    cout << setw(30) << setfill('=') << "" << setfill(' ') << "Quick Sort(de quy)" << endl;
     copy_arr(a, a_copy, n);
     start_t = clock();
     QuickSort(a_copy, n);
@@ -51,6 +51,26 @@ int main(){
             cout << "Check: false" << endl;
     }
     cout << endl;
+
+    //============== Quick Sort
+    cout << setw(30) << setfill('=') << "" << setfill(' ') << "Quick Sort(stack)" << endl;
+    copy_arr(a, a_copy, n);
+    start_t = clock();
+    QuickSort_stack(a_copy, n);
+    end_t = clock();
+    cout << "Time = " << (double(end_t) - start_t)/(CLOCKS_PER_SEC) << "s" << endl;
+    
+    if(need_to_print)
+        show_arr(a_copy, n, 20);
+    if(need_to_check){
+        if(check_sort(a_copy, n))
+            cout << "Check: true" << endl;
+        else 
+            cout << "Check: false" << endl;
+    }
+    cout << endl;
+
+    return 0;
 
     //============== Intersection Sort
     cout << setw(30) << setfill('=') << "" << setfill(' ') << "Intersection Sort" << endl;

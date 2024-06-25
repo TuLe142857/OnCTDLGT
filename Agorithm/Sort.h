@@ -159,6 +159,54 @@ void SelectionSort(int *arr, int n){
     
 }
 
+void QuickSort_stack(int *arr, int n){
+    struct qsort{
+        int low;
+        int high;
+    };
+
+
+    qsort stack[1000];
+    int sp = 0;
+
+    int i, j, pivot, temp, low, high;
+    stack[0].low = 0;
+    stack[0].high = n-1;
+    while(sp != -1){
+        low = stack[sp].low;
+        high = stack[sp].high;
+        sp--;
+
+        while(low < high){
+            i = low;
+            j = high;
+            pivot = arr[(low + high)/2];
+            while(i <= j){
+                while(arr[i] < pivot) i++;
+                while(arr[j] > pivot) j--;
+                if(i <= j){
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    i++;
+                    j--;
+                }
+                //sau while: j_pivot_i
+
+                if(i < high){
+                    sp++;
+                    stack[sp].low = i;
+                    stack[sp].high = high;
+                }
+                high = j;
+            }
+        }
+
+    }
+
+
+}
+
 void _QuickSort(int *arr, int low, int high);
 void QuickSort(int *arr, int n){
     _QuickSort(arr, 0, n-1);
