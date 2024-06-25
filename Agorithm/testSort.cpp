@@ -70,7 +70,25 @@ int main(){
     }
     cout << endl;
 
-    return 0;
+    //============== Quick Sort
+    cout << setw(30) << setfill('=') << "" << setfill(' ') << "Heap Sort" << endl;
+    copy_arr(a, a_copy, n);
+    start_t = clock();
+    HeapSort(a_copy, n);
+    end_t = clock();
+    cout << "Time = " << (double(end_t) - start_t)/(CLOCKS_PER_SEC) << "s" << endl;
+    
+    if(need_to_print)
+        show_arr(a_copy, n, 20);
+    if(need_to_check){
+        if(check_sort(a_copy, n))
+            cout << "Check: true" << endl;
+        else 
+            cout << "Check: false" << endl;
+    }
+    cout << endl;
+
+    
 
     //============== Intersection Sort
     cout << setw(30) << setfill('=') << "" << setfill(' ') << "Intersection Sort" << endl;

@@ -285,4 +285,41 @@ void _QuickSort(int *arr, int low, int high){
     */
 }
 
-void HeapSort(int *arr, int n);
+void Adjust(int *arr, int r, int n){
+    //r:root
+    int j = 2*r+1; //leftnode
+    bool cont = true;   //continue = true
+    int x = arr[r];
+    while(cont && j <= n-1){
+        if(j+1 <= n-1 && arr[j] < arr[j+1])
+            j++;
+        if(arr[j] < x){
+            cont = false;
+        }else{
+            arr[r] = arr[j];
+            r = j;
+            j = 2*r +1;
+        }
+    }
+    arr[r] = x;
+}
+
+void HeapSort(int *arr, int n){
+    int temp;
+
+    //tao heap ban dau
+    for(int i = n/2 - 1; i >= 0; i--)
+        Adjust(arr, i, n);
+    
+    //i tro den cuoi day
+    for(int i = n-1; i >= 0; i--){
+        temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+        Adjust(arr, 0, i);
+
+    }
+}
+
+
+
