@@ -27,5 +27,13 @@ struct TreeNode{
     TreeNode<T> *right = nullptr;
 };
 
+template<typename T>
+struct AVLtreeNode{
+    T data;
+    int bf; //balancefactor
+    AVLtreeNode<T> *left = nullptr;
+    AVLtreeNode<T> *right = nullptr;
+};
+
 
 }
